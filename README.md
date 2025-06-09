@@ -4,7 +4,7 @@ A simple Chrome extension to create beautiful quote cards from any text on the w
 
 ## Demo
 
-https://github.com/prateekkeshari/quotemate/blob/main/quote-demo.mp4
+🎥 **[Watch Demo Video](https://github.com/prateekkeshari/quotemate/blob/main/quote-demo.mp4)**
 
 ## Install
 
