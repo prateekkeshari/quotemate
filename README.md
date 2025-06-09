@@ -2,6 +2,10 @@
 
 A simple Chrome extension to create beautiful quote cards from any text on the web.
 
+## Demo
+
+![Demo Video](quote-demo.mp4)
+
 ## Install
 
 1. Download or clone this repository
