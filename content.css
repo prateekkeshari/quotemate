@@ -1,0 +1,9 @@
+/* Content script styles - minimal to avoid conflicts */
+#quote-card-extension-modal {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Ensure our modal is always on top */
+#quote-card-extension-modal {
+  z-index: 2147483647 !important;
+} 

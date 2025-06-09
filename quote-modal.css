@@ -1,0 +1,621 @@
+/* Quote Modal CSS - Following user's aesthetic preferences */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Modal Backdrop */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 2147483647;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Modal Container */
+.modal-container {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  animation: modalEnter 0.2s ease-out;
+  position: relative;
+}
+
+@media (prefers-color-scheme: dark) {
+  .modal-container {
+    background: #000000;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Preview Area */
+.preview-area {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  background: #f8f9fa;
+}
+
+@media (prefers-color-scheme: dark) {
+  .preview-area {
+    background: #111111;
+  }
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  background: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  .close-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+  }
+}
+
+.close-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  .close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Quote Card */
+.quote-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 500px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.quote-card.vertical {
+  height: 625px;
+}
+
+.quote-card.mobile {
+  width: 320px;
+  height: 320px;
+}
+
+.quote-card.mobile.vertical {
+  height: 400px;
+}
+
+/* Quote Content */
+.quote-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.quote-card.mobile .quote-content {
+  padding: 1.25rem;
+}
+
+.quote-text {
+  font-weight: 500;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  color: #000000;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.quote-text::before {
+  content: '"';
+}
+
+.quote-text::after {
+  content: '"';
+}
+
+/* Quote Footer */
+.quote-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.quote-card.mobile .quote-footer {
+  padding: 1.25rem;
+}
+
+.quote-title {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.8);
+  transition: color 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.quote-card.mobile .quote-title {
+  font-size: 0.75rem;
+}
+
+.quote-url {
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.6);
+  transition: color 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.quote-card.mobile .quote-url {
+  font-size: 0.625rem;
+}
+
+/* Long text adjustments */
+.quote-card.long-text .quote-title {
+  font-size: 0.75rem;
+}
+
+.quote-card.long-text .quote-url {
+  font-size: 0.625rem;
+}
+
+.quote-card.mobile.long-text .quote-title {
+  font-size: 0.625rem;
+}
+
+.quote-card.mobile.long-text .quote-url {
+  font-size: 0.5rem;
+}
+
+/* Color Themes */
+.quote-card.light {
+  background: #ffffff;
+}
+
+.quote-card.light .quote-text {
+  color: #000000;
+}
+
+.quote-card.light .quote-title {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.quote-card.light .quote-url {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.quote-card.dark {
+  background: #111111;
+}
+
+.quote-card.dark .quote-text {
+  color: #ffffff;
+}
+
+.quote-card.dark .quote-title {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.quote-card.dark .quote-url {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.quote-card.blue {
+  background: #eff6ff;
+}
+
+.quote-card.blue .quote-text {
+  color: #1f2937;
+}
+
+.quote-card.blue .quote-title {
+  color: rgba(31, 41, 55, 0.8);
+}
+
+.quote-card.blue .quote-url {
+  color: rgba(31, 41, 55, 0.6);
+}
+
+.quote-card.moss {
+  background: #f0fdf4;
+}
+
+.quote-card.moss .quote-text {
+  color: #1f2937;
+}
+
+.quote-card.moss .quote-title {
+  color: rgba(31, 41, 55, 0.8);
+}
+
+.quote-card.moss .quote-url {
+  color: rgba(31, 41, 55, 0.6);
+}
+
+.quote-card.cream {
+  background: #fffbeb;
+}
+
+.quote-card.cream .quote-text {
+  color: #1f2937;
+}
+
+.quote-card.cream .quote-title {
+  color: rgba(31, 41, 55, 0.8);
+}
+
+.quote-card.cream .quote-url {
+  color: rgba(31, 41, 55, 0.6);
+}
+
+.quote-card.rose {
+  background: #fff1f2;
+}
+
+.quote-card.rose .quote-text {
+  color: #1f2937;
+}
+
+.quote-card.rose .quote-title {
+  color: rgba(31, 41, 55, 0.8);
+}
+
+.quote-card.rose .quote-url {
+  color: rgba(31, 41, 55, 0.6);
+}
+
+/* Controls Area */
+.controls-area {
+  padding: 16px;
+  background: #f1f5f9;
+  border-top: 1px solid #e2e8f0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .controls-area {
+    background: #111111;
+    border-top: 1px solid #333333;
+  }
+}
+
+.controls-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .controls-grid {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actions-group {
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .control-group {
+    justify-content: flex-start;
+  }
+
+  .actions-group {
+    justify-content: flex-end;
+    gap: 24px;
+  }
+}
+
+/* Color Options */
+.color-options {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.color-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.color-btn.active {
+  border-color: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  .color-btn.active {
+    border-color: #ffffff;
+  }
+}
+
+.color-btn:hover {
+  transform: scale(1.1);
+}
+
+.color-btn .check-icon {
+  width: 12px;
+  height: 12px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.color-btn.active .check-icon {
+  opacity: 1;
+}
+
+/* Format Options */
+.format-options {
+  display: flex;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2px;
+  border-radius: 24px;
+  gap: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .format-options {
+    background: #222222;
+  }
+}
+
+.format-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+@media (prefers-color-scheme: dark) {
+  .format-btn {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.format-btn.active {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .format-btn.active {
+    background: #333333;
+    color: #ffffff;
+  }
+}
+
+.format-btn:hover:not(.active) {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  .format-btn:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0;
+}
+
+.action-btn.secondary {
+  background: #ffffff;
+  color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .action-btn.secondary {
+    background: #222222;
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.action-btn.primary {
+  background: #000000;
+  color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  .action-btn.primary {
+    background: #ffffff;
+    color: #000000;
+  }
+}
+
+.action-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.action-btn:active {
+  transform: translateY(0);
+}
+
+.action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2147483648;
+  color: #ffffff;
+  gap: 16px;
+}
+
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .modal-backdrop {
+    padding: 8px;
+  }
+
+  .modal-container {
+    max-width: 360px;
+  }
+
+  .close-btn {
+    width: 40px;
+    height: 40px;
+    top: 8px;
+    right: 8px;
+  }
+
+  .quote-card {
+    width: 320px;
+    height: 320px;
+  }
+
+  .quote-card.vertical {
+    height: 400px;
+  }
+
+  .color-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .action-btn {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Smooth color transitions */
+.quote-card {
+  transition: background-color 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.quote-text,
+.quote-title,
+.quote-url {
+  transition: color 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+} 

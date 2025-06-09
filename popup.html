@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote Card Creator</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="header">
+      <h1>Quote Card Creator</h1>
+      <p>Create beautiful quote cards from selected text</p>
+    </div>
+    
+    <div class="content">
+      <div class="instruction-card">
+        <div class="icon">📝</div>
+        <div class="text">
+          <h3>How to use:</h3>
+          <ol>
+            <li>Select any text on a webpage</li>
+            <li>Right-click and choose "Create Quote Card"</li>
+            <li>Customize and download your quote card</li>
+          </ol>
+        </div>
+      </div>
+      
+      <div class="shortcut-info">
+        <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">Q</span>
+        <small>Keyboard shortcut</small>
+      </div>
+      
+      <div class="selection-area" id="selectionArea" style="display: none;">
+        <h3>Selected Text:</h3>
+        <div class="selected-text" id="selectedText"></div>
+        <button class="create-btn" id="createBtn">Create Quote Card</button>
+      </div>
+      
+      <div class="no-selection" id="noSelection">
+        <p>No text selected on the current page.</p>
+        <small>Select some text and try again!</small>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <a href="#" id="optionsLink">Options</a>
+      <a href="https://github.com" target="_blank">GitHub</a>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html> 

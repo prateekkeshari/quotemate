@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote Card</title>
+
+  <link rel="stylesheet" href="quote-modal.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Modal Container -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal-container" id="modalContainer">
+      <!-- Preview Area -->
+      <div class="preview-area">
+        <!-- Close Button -->
+        <button class="close-btn" id="closeBtn" title="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m18 6-12 12"/>
+            <path d="m6 6 12 12"/>
+          </svg>
+        </button>
+
+        <!-- Quote Card -->
+        <div class="quote-card" id="quoteCard">
+          <div class="quote-content" id="quoteContent">
+            <div class="quote-text" id="quoteText"></div>
+          </div>
+          <div class="quote-footer" id="quoteFooter">
+            <div class="quote-title" id="quoteTitle"></div>
+            <div class="quote-url" id="quoteUrl"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls-area">
+        <div class="controls-grid">
+          <!-- Color Options -->
+          <div class="control-group">
+            <div class="color-options" id="colorOptions">
+              <!-- Colors will be dynamically generated -->
+            </div>
+          </div>
+
+          <!-- Format and Actions -->
+          <div class="control-group actions-group">
+            <!-- Format Options -->
+            <div class="format-options">
+              <button class="format-btn active" data-format="square">1:1</button>
+              <button class="format-btn" data-format="vertical">4:5</button>
+            </div>
+
+                         <!-- Action Buttons -->
+             <div class="action-buttons">
+               <button class="action-btn primary" id="downloadBtn" title="Download PNG">
+                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                   <polyline points="7,10 12,15 17,10"/>
+                   <line x1="12" y1="15" x2="12" y2="3"/>
+                 </svg>
+               </button>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+    <div class="loading-spinner"></div>
+    <span>Generating image...</span>
+  </div>
+
+  <!-- Hidden canvas for image generation -->
+  <canvas id="hiddenCanvas" style="display: none;"></canvas>
+
+  <script src="quote-modal.js"></script>
+</body>
+</html> 
