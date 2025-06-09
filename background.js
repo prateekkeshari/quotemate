@@ -13,7 +13,7 @@ chrome.runtime.onInstalled.addListener(() => {
   // Create context menu item
   chrome.contextMenus.create({
     id: "createQuote",
-    title: "Create Quote Card",
+    title: "Quote it",
     contexts: ["selection"]
   });
 });
